@@ -1,7 +1,9 @@
 require 'bundler/setup'
 require 'sinatra/base'
 
-class Server < Sinatra::Base
+require_relative './lib/json_fetcher'
+
+class App < Sinatra::Base
   get "/ucb" do
     haml :ucb
   end

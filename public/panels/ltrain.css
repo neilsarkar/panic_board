@@ -6,6 +6,8 @@
 h2 {
   font-size: 22px;
   text-transform: uppercase;
+  margin-top: 5px;
+  text-align: center
 }
 
 #circle {

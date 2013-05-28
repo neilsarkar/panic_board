@@ -1,0 +1,15 @@
+!!! Strict
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "no-cache", "http-equiv" => "Cache-control"}/
+
+    %link{href: "/application.css", rel: "stylesheet", type: "text/css"}
+    %link{href: "/panels#{request.path_info}.css", rel: "stylesheet", type: "text/css"}
+
+    %script{src: "/application.js"}
+    %script{src: "/panels#{request.path_info}.js"}
+
+    %body{onload: "init()"}
+      #container
+        = yield

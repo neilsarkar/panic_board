@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Roadgeek2005SeriesD";
+  src: url("http://panic.com/fonts/Roadgeek 2005 Series D/Roadgeek 2005 Series D.otf");
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset,img { border: 0; }
+
+body {
+  color: white; font-family: 'Roadgeek2005SeriesD', sans-serif; font-size: 20px; line-height: 24px;
+}
+
+body, html, #container { background: transparent !important; }
+
+#container { width: 762px; height: 442px; }

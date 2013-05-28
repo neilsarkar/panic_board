@@ -9,11 +9,13 @@ window.setRefreshSource = function(url, options) {
     req.onreadystatechange=function() {
       if (req.readyState==4 ) {
         if( 300 > req.status && req.status >= 200 ) {
+          var response;
           try {
-            options.success(JSON.parse(req.responseText));
+            response = JSON.parse(req.responseText)
           } catch(parseError) {
-            options.success(req.responseText);
+            response = req.responseText
           }
+          options.success(JSON.parse(req.responseText));
         } else {
           options.error(req.responseText, req.status)
         }

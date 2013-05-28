@@ -6,7 +6,16 @@ describe JsonFetcher do
       stub_request(:get, "http://istheltrainfucked.com").to_return(
         body: "Hi."
       )
-      JsonFetcher.fetch("http://istheltrainfucked.com").should == "Hi."
+      JsonFetcher.fetch("http://istheltrainfucked.com").should == "\"Hi.\""
+
+      WebMock.should have_requested(:get, "http://istheltrainfucked.com")
+    end
+
+    it "should return unparsed results if false is passed" do
+      stub_request(:get, "http://istheltrainfucked.com").to_return(
+        body: "Hi."
+      )
+      JsonFetcher.fetch("http://istheltrainfucked.com", false).should == "Hi."
 
       WebMock.should have_requested(:get, "http://istheltrainfucked.com")
     end
@@ -16,7 +25,7 @@ describe JsonFetcher do
         body: Yajl::Encoder.encode({cool: "nice"})
       )
 
-      JsonFetcher.fetch("http://ucbclassy.com").should == { "cool" => "nice" }
+      JsonFetcher.fetch("http://ucbclassy.com").should == Yajl::Encoder.encode({ "cool" => "nice" })
     end
 
     it "should allow post-processing" do
@@ -25,8 +34,8 @@ describe JsonFetcher do
       )
 
       JsonFetcher.fetch("http://ucbclassy.com") do |response|
-        response.merge!({"great" => "awesome"})
-      end.should == { "cool" => "nice", "great" => "awesome"}
+        response.merge({"great" => "awesome"})
+      end.should == Yajl::Encoder.encode({ "cool" => "nice", "great" => "awesome"})
     end
   end
 end

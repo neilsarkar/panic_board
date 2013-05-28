@@ -2,7 +2,7 @@ require 'open-uri'
 require 'yajl'
 
 class JsonFetcher
-  def self.fetch(url, &block)
+  def self.fetch(url, parse_results = true, &block)
     response = "nice"
     open(url) do |f|
       response = f.read
@@ -10,8 +10,12 @@ class JsonFetcher
 
     response = Yajl::Parser.parse(response) rescue response
 
-    yield(response) if block_given?
+    response = yield(response) if block_given?
 
-    response
+    if parse_results
+      Yajl::Encoder.encode(response) rescue response
+    else
+      response
+    end
   end
 end

@@ -1,0 +1,22 @@
+#container {
+  width: 250px;
+  height: 250px;
+}
+
+h2 {
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+#circle {
+  width: 200px;
+  height: 200px;
+  background: url(/images/circle.png) no-repeat left top;
+  background-size: 200px 200px;
+  font-family: Helvetica, arial, sans-serif;
+  padding-top: 84px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 20px auto 0;
+}

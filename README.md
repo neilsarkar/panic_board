@@ -11,3 +11,7 @@
   $ rackup
 
   You can use the helper methods in public/application.js to update data periodically.
+
+## Thanks
+
+  "Is the L train fucked" panel uses code from https://github.com/jgv/is-the-L-train-fucked. Thanks @jgv!

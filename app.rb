@@ -8,6 +8,10 @@ require_relative './lib/json_fetcher'
 class App < Sinatra::Base
   register Sinatra::Namespace
 
+  get "/" do
+    "Hi. Add panels to app.rb"
+  end
+
   namespace "/refresh" do
     before do
       content_type :json

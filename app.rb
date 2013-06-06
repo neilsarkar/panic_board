@@ -53,7 +53,7 @@ class App < Sinatra::Base
           avatar_url: cams_tweet.user.profile_image_url
         },
         joey: {
-          text: joeys_tweet.text,
+          text: joeys_tweet.text.gsub(/pizza/i, "cock"),
           avatar_url: joeys_tweet.user.profile_image_url
         },
         neil: {

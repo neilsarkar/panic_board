@@ -3,6 +3,7 @@ window.setRefreshSource = function(url, options) {
   window.refresh = function() {
     var req = new XMLHttpRequest();
 
+    options = options || {}
     options.success = options.success || console.log
     options.error = options.error || console.log
 

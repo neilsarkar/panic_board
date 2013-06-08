@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/namespace'
 require 'nokogiri'
 require 'twitter'
+require 'instagram'
 
 require_relative './lib/json_fetcher'
 
@@ -59,6 +60,39 @@ class App < Sinatra::Base
         neil: {
           text: neils_tweet.text,
           avatar_url: neils_tweet.user.profile_image_url
+        }
+      }
+
+      Yajl::Encoder.encode(json)
+    end
+
+    get "/instagram" do
+      Instagram.configure do |config|
+        config.client_id = "6b77fbae4ed54b1baec00be620f5954f"
+        config.client_secret = "408e2f1c69f040598b23beaa19606531"
+      end
+
+      client = Instagram.client(access_token: "18172731.f59def8.7798044e48044dd18eee1402277b87e9")
+
+      cams_photo  = client.user_recent_media(31713).first
+      joeys_photo = client.user_recent_media(7560612).first
+      neils_photo = client.user_recent_media(18172731).first
+
+      json = {
+        cam: {
+          image_url: cams_photo.images.standard_resolution.url,
+          text: cams_photo.caption.try(:text),
+          likes: cams_photo.likes.count
+        },
+        joey: {
+          image_url: joeys_photo.images.standard_resolution.url,
+          text: joeys_photo.caption.try(:text),
+          likes: joeys_photo.likes.count
+        },
+        neil: {
+          image_url: neils_photo.images.standard_resolution.url,
+          text: neils_photo.caption.try(:text),
+          likes: neils_photo.likes.count
         }
       }
 

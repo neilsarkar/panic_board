@@ -68,11 +68,11 @@ class App < Sinatra::Base
 
     get "/instagram" do
       Instagram.configure do |config|
-        config.client_id = "6b77fbae4ed54b1baec00be620f5954f"
-        config.client_secret = "408e2f1c69f040598b23beaa19606531"
+        config.client_id = ENV["INSTAGRAM_CLIENT_ID"]
+        config.client_secret = ENV["INSTAGRAM_CLIENT_SECRET"]
       end
 
-      client = Instagram.client(access_token: "18172731.f59def8.7798044e48044dd18eee1402277b87e9")
+      client = Instagram.client(access_token: ENV["INSTAGRAM_ACCESS_TOKEN"])
 
       cams_photo  = client.user_recent_media(31713).first
       joeys_photo = client.user_recent_media(7560612).first

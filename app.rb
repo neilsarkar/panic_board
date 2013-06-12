@@ -98,6 +98,12 @@ class App < Sinatra::Base
 
       Yajl::Encoder.encode(json)
     end
+
+    get "/poncho" do
+      json = Yajl::Parser.parse(open('http://poncho.is/s/1Sm6X/json/'))['data']
+
+      Yajl::Encoder.encode(json)
+    end
   end
 
   get "/:page" do

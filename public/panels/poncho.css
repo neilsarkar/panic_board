@@ -1,0 +1,28 @@
+#container {
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  position: relative;
+}
+
+
+#current_temperature {
+  font-size: 40px;
+  line-height: 40px;
+}
+
+#headline {
+  margin: 1em 0 .5em;
+}
+
+#human_description {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+img {
+  width: 45px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

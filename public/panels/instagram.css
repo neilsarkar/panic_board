@@ -1,3 +1,2 @@
 #pictures { height: 250px; overflow: hidden; width: 762px;}
-#pictures img { float: left; width: 32%; margin-left: 1%;}
-#pictures img:first-child { margin-left: 0}
+#pictures img { float: left; width: 254px }

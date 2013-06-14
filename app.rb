@@ -99,6 +99,28 @@ class App < Sinatra::Base
       Yajl::Encoder.encode(json)
     end
 
+    get "/foursquare" do
+      def get_last_checkin(user_id)
+        puts "https://api.foursquare.com/v2/users/#{user_id}/checkins?oauth_token=#{ENV["FOURSQUARE_ACCESS_TOKEN"]}"
+        json = open("https://api.foursquare.com/v2/users/#{user_id}/checkins?oauth_token=#{ENV["FOURSQUARE_ACCESS_TOKEN"]}")
+        Yajl::Parser.parse(json).first
+      end
+
+      users = {
+        neil: 23118,
+        cam: 244383,
+        joey: 25168764
+      }
+
+      checkins = {}
+
+      users.each do |name, id|
+        checkins[name] = get_last_checkin(id)
+      end
+
+      Yajl::Encoder.encode(checkins)
+    end
+
     get "/poncho" do
       json = Yajl::Parser.parse(open('http://poncho.is/s/1Sm6X/json/'))['data']
 

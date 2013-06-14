@@ -15,3 +15,5 @@
 ## Thanks
 
   "Is the L train fucked" panel uses code from https://github.com/jgv/is-the-L-train-fucked. Thanks @jgv!
+
+  "Poncho" uses, well, poncho. Thanks http://poncho.is!

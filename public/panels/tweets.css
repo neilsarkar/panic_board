@@ -64,11 +64,11 @@ p:last-child {
 }
 #tweets .tweet {
 	width: 212px;
-  margin-left: 62px;
+  padding-left: 60px;
   float: left
 }
 #tweets .tweet:first-child {
-  margin-left: 0
+  padding-left: 0
 }
 
 .avatar {

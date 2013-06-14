@@ -1,7 +1,7 @@
 /*-  CSS RESET
 ----------------------------------------------------------------------*/
 
-/* 
+/*
   html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
   v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
   html5doctor.com/html-5-reset-stylesheet/
@@ -16,7 +16,7 @@ b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
+article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
   margin:0;
@@ -27,18 +27,8 @@ time, mark, audio, video {
   vertical-align:baseline;
   background:transparent;
   list-style:none;
-}                  
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section { 
-    display:block;
 }
 
-
-/*-  SELF-CLEARING FLOATS
-----------------------------------------------------------------------*/
-
-.mod:after,
 #tweets:after {
 	content: ".";
 	display: block;
@@ -46,10 +36,6 @@ footer, header, hgroup, menu, nav, section {
 	clear: both;
 	visibility: hidden;
 }
-
-
-/*-  BASE STYLES
-----------------------------------------------------------------------*/
 
 body {
 	background: transparent;
@@ -61,42 +47,31 @@ abbr,
 acronym {
 	cursor: help;
 }
-a {
-}
-a:hover,
-a:focus {
-}
-a:active {
-}
 p {
 	margin-bottom: 20px;
 }
 p:last-child {
 	margin-bottom: 0;
 }
+
 #tweets {
 	height: 300px;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
 	width: 762px;
+  padding-top: 30px;
 }
-#tweets #cam,
-#tweets #joey,
-#tweets #neil {
-	top: 30px;
-	position: absolute;
+#tweets .tweet {
 	width: 212px;
+  margin-left: 62px;
+  float: left
 }
-#tweets #cam {
-	left: 30px;
+#tweets .tweet:first-child {
+  margin-left: 0
 }
-#tweets #joey {
-	left: 271px;
-}
-#tweets #neil {
-	left: 512px;
-}
+
+
 .avatar {
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
